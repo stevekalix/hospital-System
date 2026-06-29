@@ -1,0 +1,195 @@
+managed implementation in class zbp_r_hospital unique;
+strict ( 2 );
+
+define behavior for ZR_HOSPITAL alias Hospital
+persistent table zhospital
+lock master
+authorization master ( instance )
+etag master LastChangedAt
+{
+  create ( authorization : global );
+  update;
+  delete;
+
+  field ( numbering : managed, readonly : update )
+    HospitalUuid;
+
+  field ( readonly )
+    CreatedBy,
+    CreatedAt,
+    LastChangedBy,
+    LastChangedAt;
+
+  association _doctor { create; }
+  association _patient { create; }
+  association _appointment { create; }
+
+  mapping for zhospital
+  {
+    HospitalUuid    = hospital_uuid;
+    HospitalId      = hospital_id;
+    HospitalName    = hospital_name;
+    HospitalType    = hospital_type;
+    City            = city;
+    State           = state;
+    Country         = country;
+    Phone           = phone;
+    Email           = email;
+    Status          = status;
+    TotalDoctors    = total_doctors;
+    TotalPatients   = total_patients;
+    CreatedBy       = created_by;
+    CreatedAt       = created_at;
+    LastChangedBy   = last_changed_by;
+    LastChangedAt   = last_changed_at;
+  }
+}
+
+define behavior for ZR_DOCTOR_27 alias Doctor
+persistent table zdoctor_27
+lock dependent by _Hospital
+authorization dependent by _Hospital
+etag master LastChangedAt
+{
+  update;
+  delete;
+
+  field ( numbering : managed, readonly : update )
+    DoctorUuid;
+
+  field ( readonly )
+    CreatedBy,
+    CreatedAt,
+    LastChangedBy,
+    LastChangedAt;
+
+
+
+  field ( readonly : update )
+    HospitalUuid;
+
+  association _Hospital;
+
+  mapping for zdoctor_27
+  {
+    DoctorUuid       = doctor_uuid;
+    HospitalUuid     = hospital_uuid;
+    DoctorId         = doctor_id;
+    DoctorName       = doctor_name;
+    Gender           = gender;
+    Dob              = dob;
+    Age              = age;
+    Specialization   = specialization;
+    Qualification    = qualification;
+    Experience       = experience;
+    Phone            = phone;
+    Email            = email;
+    CurrencyCode     = currency_code;
+    ConsultationFee  = consultation_fee;
+    Status           = status;
+    CreatedBy        = created_by;
+    CreatedAt        = created_at;
+    LastChangedBy    = last_changed_by;
+    LastChangedAt    = last_changed_at;
+  }
+}
+
+define behavior for ZR_PATIENT alias Patient
+persistent table zpatient
+lock dependent by _Hospital
+authorization dependent by _Hospital
+etag master LastChangedAt
+{
+  update;
+  delete;
+
+  field ( readonly )
+    CreatedBy,
+    CreatedAt,
+    LastChangedBy,
+    LastChangedAt;
+
+  field ( readonly : update )
+    HospitalUuid;
+
+   field (numbering : managed, readonly : update)
+    PatientUuid;
+
+  association _Hospital;
+
+  mapping for zpatient
+  {
+    PatientUuid     = patient_uuid;
+    HospitalUuid    = hospital_uuid;
+    PatientId       = patient_id;
+    PatientName     = patient_name;
+    Gender          = gender;
+    Dob             = dob;
+    Age             = age;
+    BloodGroup      = blood_group;
+    Disease         = disease;
+    DoctorUuid      = doctor_uuid;
+    Phone           = phone;
+    Email           = email;
+    Address         = address;
+    AdmissionDate   = admission_date;
+    DischargeDate   = discharge_date;
+    Status          = status;
+    CreatedBy       = created_by;
+    CreatedAt       = created_at;
+    LastChangedBy   = last_changed_by;
+    LastChangedAt   = last_changed_at;
+  }
+}
+
+define behavior for ZR_APPOINTMENT alias Appointment
+persistent table ZAPPOINTMENT
+lock dependent by _Hospital
+authorization dependent by _Hospital
+etag master LastChangedAt
+{
+
+  update;
+  delete;
+
+  field ( readonly )
+    HospitalUuid,
+    CreatedBy,
+    CreatedAt,
+    LastChangedBy,
+    LastChangedAt;
+
+  field ( mandatory : create )
+    DoctorUuid,
+    AppointmentId,
+    PatientUuid,
+    AppointmentDate,
+    AppointmentTime,
+    VisitType;
+
+  field ( numbering : managed, readonly : update )
+    AppointmentUuid;
+
+  association _Hospital;
+
+  mapping for ZAPPOINTMENT
+  {
+    AppointmentUuid   = appointment_uuid;
+    AppointmentId     = appointment_id;
+    HospitalUuid      = hospital_uuid;
+    DoctorUuid        = doctor_uuid;
+    PatientUuid       = patient_uuid;
+    AppointmentDate   = appointment_date;
+    AppointmentTime   = appointment_time;
+    VisitType         = visit_type;
+    ConsultationFee   = consultation_fee;
+    CurrencyCode      = currency_code;
+    PaymentStatus     = payment_status;
+    AppointmentStatus = appointment_status;
+    Remarks           = remarks;
+    CreatedBy         = created_by;
+    CreatedAt         = created_at;
+    LastChangedBy     = last_changed_by;
+    LastChangedAt     = last_changed_at;
+  }
+  }

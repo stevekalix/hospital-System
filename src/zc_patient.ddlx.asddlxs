@@ -1,0 +1,94 @@
+@Metadata.layer: #CORE
+
+@UI.headerInfo: {
+  typeName: 'Patient',
+  typeNamePlural: 'Patients',
+  title: {
+    type: #STANDARD,
+    value: 'PatientName'
+  }
+}
+
+annotate entity ZC_PATIENT with
+{
+  @UI.facet: [
+    {
+      id: 'PatientInfo',
+      purpose: #STANDARD,
+      type: #FIELDGROUP_REFERENCE,
+      label: 'Patient Information',
+      targetQualifier: 'General',
+      position: 10
+    }
+  ]
+
+  @EndUserText.label: 'Patient ID'
+  @UI.lineItem: [{ position: 10 }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 10 }]
+  PatientId;
+
+  @EndUserText.label: 'Patient Name'
+  @UI.lineItem: [{ position: 20 }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 20 }]
+  PatientName;
+
+  @EndUserText.label: 'Gender'
+  @UI.lineItem: [{ position: 30 }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 30 }]
+  Gender;
+
+  @EndUserText.label: 'Date of Birth'
+  @UI.lineItem: [{ position: 40 }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 40 }]
+  Dob;
+
+  @EndUserText.label: 'Age'
+  @UI.lineItem: [{ position: 50 }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 50 }]
+  Age;
+
+  @EndUserText.label: 'Blood Group'
+  @UI.lineItem: [{ position: 60 }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 60 }]
+  BloodGroup;
+
+  @EndUserText.label: 'Disease'
+  @UI.lineItem: [{ position: 70 }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 70 }]
+  Disease;
+
+  @EndUserText.label: 'Doctor'
+  @UI.lineItem: [{ position: 80 }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 80 }]
+  DoctorUuid;
+
+  @EndUserText.label: 'Phone Number'
+  @UI.lineItem: [{ position: 90 }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 90 }]
+  Phone;
+
+  @EndUserText.label: 'Email Address'
+  @UI.lineItem: [{ position: 100 }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 100 }]
+  Email;
+
+  @EndUserText.label: 'Address'
+  @UI.lineItem: [{ position: 110 }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 110 }]
+  Address;
+
+  @EndUserText.label: 'Admission Date'
+  @UI.lineItem: [{ position: 120 }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 120 }]
+  AdmissionDate;
+
+  @EndUserText.label: 'Discharge Date'
+  @UI.lineItem: [{ position: 130 }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 130 }]
+  DischargeDate;
+
+  @EndUserText.label: 'Status'
+  @UI.lineItem: [{ position: 140 }]
+  @UI.fieldGroup: [{ qualifier: 'General', position: 140 }]
+  Status;
+}

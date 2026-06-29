@@ -1,0 +1,100 @@
+@Metadata.layer:#CORE
+@UI.headerInfo: {
+  typeName: 'Appointment',
+  typeNamePlural: 'Appointments',
+  title: {
+    type: #STANDARD,
+    value: 'AppointmentId'
+  },
+  description: {
+    value: 'AppointmentStatus'
+  }
+}
+
+annotate entity ZC_APPOINTMENT
+    with 
+{
+    @UI.facet: [
+    {
+      id: 'AppointmentInfo',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Appointment Information',
+      position: 10
+    }
+  ]
+
+  @EndUserText.label: 'Appointment ID'
+  @UI.lineItem: [{ position: 10 }]
+  @UI.identification: [{ position: 10 }]
+  AppointmentId;
+
+  @EndUserText.label: 'Hospital'
+  @UI.lineItem: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }]
+  HospitalUuid;
+
+  @EndUserText.label: 'Doctor'
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]
+  DoctorUuid;
+
+  @EndUserText.label: 'Patient'
+  @UI.lineItem: [{ position: 40 }]
+  @UI.identification: [{ position: 40 }]
+  PatientUuid;
+
+  @EndUserText.label: 'Appointment Date'
+  @UI.lineItem: [{ position: 50 }]
+  @UI.identification: [{ position: 50 }]
+  AppointmentDate;
+
+  @EndUserText.label: 'Appointment Time'
+  @UI.lineItem: [{ position: 60 }]
+  @UI.identification: [{ position: 60 }]
+  AppointmentTime;
+
+  @EndUserText.label: 'Visit Type'
+  @UI.lineItem: [{ position: 70 }]
+  @UI.identification: [{ position: 70 }]
+  VisitType;
+
+  @EndUserText.label: 'Consultation Fee'
+  @UI.lineItem: [{ position: 80 }]
+  @UI.identification: [{ position: 80 }]
+  ConsultationFee;
+
+  @EndUserText.label: 'Payment Status'
+  @UI.lineItem: [{ position: 90 }]
+  @UI.identification: [{ position: 90 }]
+  PaymentStatus;
+
+  @EndUserText.label: 'Appointment Status'
+  @UI.lineItem: [{ position: 100 }]
+  @UI.identification: [{ position: 100 }]
+  AppointmentStatus;
+
+  @EndUserText.label: 'Remarks'
+  @UI.lineItem: [{ position: 110 }]
+  @UI.identification: [{ position: 110 }]
+  Remarks;
+
+  @EndUserText.label: 'Created By'
+  @UI.identification: [{ position: 120 }]
+  CreatedBy;
+
+  @EndUserText.label: 'Created At'
+  @UI.identification: [{ position: 130 }]
+  CreatedAt;
+
+  @EndUserText.label: 'Last Changed By'
+  @UI.identification: [{ position: 140 }]
+  LastChangedBy;
+
+  @EndUserText.label: 'Last Changed At'
+  @UI.identification: [{ position: 150 }]
+  LastChangedAt;
+   
+   
+    
+}

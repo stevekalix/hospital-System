@@ -1,0 +1,7 @@
+@EndUserText.label: 'Services definition for the HOSPITAL'
+define service ZUI_HOSPITAL {
+  expose ZC_HOSPITAL    as HospitalService;
+  expose ZC_DOCTOR_27   as DoctorService;
+  expose ZC_PATIENT     as PatientService;
+  expose ZC_APPOINTMENT as AppointmentService;
+}

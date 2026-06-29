@@ -1,0 +1,95 @@
+@Metadata.layer:#CORE
+
+ @UI.headerInfo: {
+      typeName: 'Hospital',
+      typeNamePlural: 'Hospitals',
+      title: {
+          type: #STANDARD,
+          value: 'HospitalName'
+      }
+  }
+annotate entity ZC_HOSPITAL
+    with 
+{
+
+  @UI.facet: [
+    {
+      id: 'Hospital',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Hospital Information',
+      position: 10
+    },
+    {
+      id: 'Doctor',
+      purpose: #STANDARD,
+      type: #LINEITEM_REFERENCE,
+      label: 'Doctor',
+      targetElement: '_doctor',
+      position: 20
+    },
+      {
+    id: 'Patient',
+    purpose: #STANDARD,
+    type: #LINEITEM_REFERENCE,
+    label: 'Patients',
+    targetElement: '_patient',
+    position: 30
+  },
+   {
+      id: 'Appointments',
+      purpose: #STANDARD,
+      type: #LINEITEM_REFERENCE,
+      label: 'Appointments',
+      position: 40,
+      targetElement: '_appointment'
+    }
+    
+  ]
+  
+  
+   @EndUserText.label: 'Hospital ID'
+  @UI.identification: [{ position: 10 }]
+  HospitalId;
+
+  @EndUserText.label: 'Hospital Name'
+  @UI.identification: [{ position: 20 }]
+  HospitalName;
+
+  @EndUserText.label: 'Hospital Type'
+  @UI.identification: [{ position: 30 }]
+  HospitalType;
+
+  @EndUserText.label: 'City'
+  @UI.identification: [{ position: 40 }]
+  City;
+
+  @EndUserText.label: 'State'
+  @UI.identification: [{ position: 50 }]
+  State;
+
+  @EndUserText.label: 'Country'
+  @UI.identification: [{ position: 60 }]
+  Country;
+
+  @EndUserText.label: 'Phone Number'
+  @UI.identification: [{ position: 70 }]
+  Phone;
+
+  @EndUserText.label: 'Email Address'
+  @UI.identification: [{ position: 80 }]
+  Email;
+
+  @EndUserText.label: 'Status'
+  @UI.identification: [{ position: 90 }]
+  Status;
+
+  @EndUserText.label: 'Total Doctors'
+  @UI.identification: [{ position: 100 }]
+  TotalDoctors;
+
+  @EndUserText.label: 'Total Patients'
+  @UI.identification: [{ position: 110 }]
+  TotalPatients;
+  
+}

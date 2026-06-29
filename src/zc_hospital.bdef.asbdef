@@ -1,0 +1,38 @@
+projection implementation in class zbp_c_hospital unique;
+strict ( 2 );
+
+define behavior for ZC_HOSPITAL alias Hospital
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _doctor { create; }
+  use association _patient { create; }
+  use association _appointment { create; }
+}
+
+define behavior for ZC_DOCTOR_27 alias Doctor
+{
+
+  use update;
+  use delete;
+
+  use association _Hospital;
+}
+
+define behavior for ZC_PATIENT  alias Patient
+{
+
+  use update;
+  use delete;
+
+  use association _Hospital;
+}
+
+define behavior for ZC_APPOINTMENT alias appoinment
+{
+
+
+  use update;  use delete;  use association _Hospital;
+  }
