@@ -8,6 +8,14 @@ define view entity ZC_PATIENT as projection on ZR_PATIENT
     HospitalUuid,
     PatientId,
     PatientName,
+    @Consumption.valueHelpDefinition: [
+      {
+        entity: {
+          name: 'ZR_GENDER_VH',
+          element: 'GenderName'
+        }
+      }
+    ]
     Gender,
     Dob,
     Age,

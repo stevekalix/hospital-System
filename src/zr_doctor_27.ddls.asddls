@@ -12,6 +12,15 @@ association to parent ZR_HOSPITAL as _Hospital
     hospital_uuid as HospitalUuid,
     doctor_id as DoctorId,
     doctor_name as DoctorName,
+    
+    @Consumption.valueHelpDefinition: [
+      {
+        entity: {
+          name: 'ZR_GENDER_VH',
+          element: 'GenderName'
+        }
+      }
+    ]
     gender as Gender,
     dob as Dob,
     age as Age,
